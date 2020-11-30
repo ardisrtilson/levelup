@@ -4,8 +4,9 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "name": "SiteData",
+            "name": "levelupdata",
             "database": "${workspaceFolder:levelup}/db.sqlite3"
         }
-    ]
+    ],
+    "python.pythonPath": "/Users/ardisred/.local/share/virtualenvs/levelup-xl2ACOro/bin/python"
 }

@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
-from levelupapi.models import gametype
+from levelupapi.models import gameType
 
 class GameTypes(ViewSet):
     """Level up game types"""
@@ -15,7 +15,7 @@ class GameTypes(ViewSet):
             Response -- JSON serialized game type
         """
         try:
-            game_type = gametype.objects.get(pk=pk)
+            game_type = gameType.objects.get(pk=pk)
             serializer = GameTypeSerializer(game_type, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
@@ -27,13 +27,13 @@ class GameTypes(ViewSet):
         Returns:
             Response -- JSON serialized list of game types
         """
-        game_types = gametype.objects.all()
+        gametypes = gameType.objects.all()
 
         # Note the addtional `many=True` argument to the
         # serializer. It's needed when you are serializing
         # a list of objects instead of a single object.
         serializer = GameTypeSerializer(
-            game_types, many=True, context={'request': request})
+            gametypes, many=True, context={'request': request})
         return Response(serializer.data)
 
 class GameTypeSerializer(serializers.HyperlinkedModelSerializer):
@@ -43,7 +43,7 @@ class GameTypeSerializer(serializers.HyperlinkedModelSerializer):
         serializers
     """
     class Meta:
-        model = gametype
+        model = GameTypes
         url = serializers.HyperlinkedIdentityField(
             view_name='gametype',
             lookup_field='id'

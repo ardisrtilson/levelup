@@ -1,3 +1,3 @@
 SELECT * FROM auth_user;
 SELECT * FROM authtoken_token;
-SELECT * FROM gametype;
+SELECT * FROM levelupapi_gamer;
